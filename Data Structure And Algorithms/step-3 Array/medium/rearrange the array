@@ -1,0 +1,65 @@
+#brute approach
+'''def rearrange_array(arr):
+    n=len(arr)
+    pos=[]
+    neg=[]
+    for i in range(n):
+        if arr[i]>0:
+            pos.append(arr[i])
+        else:
+            neg.append(arr[i])
+    for i in range(len(pos)):
+        arr[2*i]=pos[i]
+    for i in range(len(neg)):
+        arr[2*i+1]=neg[i]
+    return arr
+arr= [1, 2, -4, -5]
+ans = rearrange_array(arr)
+for i in range(len(ans)):
+    print(ans[i],end=" ")'''
+#optimal approach
+def rearrange_array(arr):
+    n=len(arr)
+    posindex,negindex=0,1
+    ans=[0]*n
+    for i in range(n):
+        if arr[i]<0:
+            ans[negindex]=arr[i]
+            negindex+=2
+        else:
+            ans[posindex]=arr[i]
+            posindex+=2
+    return ans
+arr= [1, 2, -4, -5]
+abcd=rearrange_array(arr)
+print(abcd)
+#variety2 optimal solution
+def rearrange_subarray(arr):
+    n = len(arr)
+    pos = []
+    neg = []
+    for i in range(n):
+        if arr[i] < 0:
+            neg.append(arr[i])
+        else:
+            pos.append(arr[i])
+    if len(pos) < len(neg):
+        for i in range(len(pos)):
+            arr[2*i] = pos[i]
+            arr[2*i + 1] = neg[i]
+        index = len(pos) * 2
+        for i in range(len(neg) - len(pos)):
+            arr[index] = neg[len(pos) + i]
+            index += 1
+    else:
+        for i in range(len(neg)):
+            arr[2*i] = pos[i]
+            arr[2*i + 1] = neg[i]
+        index = len(neg) * 2
+        for i in range(len(pos) - len(neg)):
+            arr[index] = pos[len(neg) + i]
+            index += 1
+    return arr
+A = [1, 2, -4, -5, 3, 4]
+ans = rearrange_subarray(A)
+print(*ans)  

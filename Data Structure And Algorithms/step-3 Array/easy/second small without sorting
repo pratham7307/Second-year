@@ -1,0 +1,28 @@
+def second_small(arr):
+    n=len(arr)
+    if n<2:
+        return -1
+    small=float('inf')
+    secondsmall=float('inf')
+    for i in range(n):
+        if(arr[i]<small):
+            secondsmall=small
+            small=arr[i]
+        elif(arr[i]<secondsmall and arr[i]!=small):
+            secondsmall=arr[i]
+    return secondsmall
+def second_large(arr):
+    n=len(arr)
+    large=float('-inf')
+    secondlarge=float('-inf')
+    for i in range(n):
+        if arr[i]>large:
+            secondlarge=large
+            large=arr[i]
+        elif(arr[i]>secondlarge and arr[i]!=secondlarge):
+            secondlarge=arr[i]
+    return secondlarge
+if __name__=="__main__":
+    arr=[4,3,4,2,8,6,7,5]
+    print(second_small(arr))
+    print(second_large(arr))

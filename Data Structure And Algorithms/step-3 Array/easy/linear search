@@ -1,0 +1,10 @@
+def linear_search(arr,n,search):
+    for i in range(n):
+        if arr[i]==search:
+            return i
+    return -1
+if __name__=="__main__":
+    arr=[1,2,3,4,5,6]
+    n=len(arr)
+    search=4
+    print(linear_search(arr,n,search))

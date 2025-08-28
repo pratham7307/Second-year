@@ -1,0 +1,43 @@
+#brute approach
+'''def two_sum(arr,target):
+    n=len(arr)
+    for i in range(n):
+        for j in range(i+1,n):
+            if arr[i]+arr[j]==target:
+                return i,j
+    return {-1,-1}
+if __name__=="__main__":
+  arr=[2,6,5,8,11]
+  target=14
+  print(two_sum(arr,target))'''
+#better approach
+'''def two_sum(arr,target):
+    mp={}
+    for i,x in enumerate(arr):
+        complement=target-x
+        if complement in mp:
+          return  [mp[complement],i]
+        mp[x]=i
+    return[-1,-1]
+if __name__=="__main__":
+  arr=[2,6,5,8,11]
+  target=14
+  print(two_sum(arr,target))'''
+  #optimal approach
+def two_sum(arr,target):
+     n=len(arr)
+     arr.sort()
+     left=0
+     right=n-1
+     while(left<right):
+        if arr[left]+arr[right]>target:
+           right-=1
+        elif arr[left]+arr[right]<target:
+            left+=1
+        elif arr[left]+arr[right]==target:
+           return [left,right]
+     return
+if __name__=="__main__":
+  arr=[2,6,5,8,11]
+  target=14
+  print(two_sum(arr,target))

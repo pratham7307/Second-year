@@ -1,0 +1,42 @@
+#brute and better approach
+'''def maximum_subarray(arr):
+    n=len(arr)
+    max=arr[0]
+    for i in range(n):
+        sum=0
+        for j in range(i,n):
+            sum+=arr[j]
+            if sum>max:
+              max=sum
+    return max
+if __name__=="__main__":
+    arr=[-2,1,-3,4,-1,2,1,-5,4]
+    print(maximum_subarray(arr))'''
+#optimal approach
+def maximum_subarray(arr,n):
+    max=arr[0]
+    sum=0
+    start=0
+    ansstart,ansend=-1,-1
+    for i in range(n):
+        if sum==0:
+            start=i
+            sum+=arr[i]
+        if sum>max:
+            max=sum
+            ansstart=start
+            ansend=i
+        if sum<0:
+            sum=0
+        
+    print("the subarray is:",end=" ")
+    for i in range(ansstart,ansend+1):
+        print(arr[i],end=" ")
+    if max<0:
+        max=0
+    return max
+arr = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+n = len(arr)
+maxSum = maximum_subarray(arr, n)
+print("The maximum subarray sum is:", maxSum)
+#kadane's algorithm

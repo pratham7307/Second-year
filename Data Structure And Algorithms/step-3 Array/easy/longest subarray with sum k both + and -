@@ -1,0 +1,21 @@
+from typing import List
+def longest_subarray(arr:List[int],k:int)->int:
+    n=len(arr)
+    prefixmap={}
+    sum=0
+    maxlength=0
+    for i in range(n):
+        sum+=arr[i]
+        if sum==k:
+            maxlength=max(maxlength,i+1)
+        rem=sum-k
+        if rem in prefixmap:
+            length=i-prefixmap[rem]
+            maxlength=max(maxlength,length)
+        if sum not in prefixmap:
+            prefixmap[rem]=i
+    return maxlength
+if __name__=="__main__":
+    arr=[2,3,5,1,9]
+    k=10
+    print(longest_subarray(arr,k))

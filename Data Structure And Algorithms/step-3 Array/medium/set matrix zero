@@ -1,0 +1,57 @@
+# def setmatrix_zero(arr,n,m):
+#     n=len(arr)
+#     m=len(arr[0])
+#     for i in range(n):
+#         for j in range(m):
+#             if arr[i][j]==0:
+#                 markrow(arr,n,i,m)
+#                 markcol(arr,n,j,m)
+#     for i in range(n):
+#         for j in range(m):
+#             if arr[i][j]==-1:
+#                 arr[i][j]=0
+#     return arr
+# def markrow(arr,n,i,m):
+#     for j in range(m):
+#         if arr[i][j]!=0:
+#             arr[i][j]=-1
+# def markcol(arr,n,j,m):
+#     for i in range(n):
+#         if arr[i][j]!=0:
+#             arr[i][j]=-1
+# if __name__ == "__main__":
+# 	arr= [[1, 1, 1], [1, 0, 1], [1, 1, 1]]
+# 	n = len(arr)
+# 	m = len(arr[0])
+# 	ans = setmatrix_zero(arr, n, m)
+
+# 	print("The Final matrix is:")
+# 	for row in ans:
+# 	    for ele in row:
+# 	        print(ele, end=" ")
+# 	    print()
+# better approach
+def setmatrix_zero(arr, n, m):
+    col = [0]* m
+    row = [0] * n
+    for i in range(n):
+        for j in range(m):
+            if arr[i][j] == 0:
+                row[i] = 1
+                col[j] = 1
+    for i in range(n):
+        for j in range(m):
+            if row[i] == 1 or col[j] == 1:
+                arr[i][j] = 0
+
+if __name__ == "__main__":
+    arr = [[1, 1, 1], [1, 0, 1], [1, 1, 1]]
+    n = len(arr)
+    m = len(arr[0])
+    setmatrix_zero(arr, n, m)
+
+    print("The Final matrix is:")
+    for row in arr:
+        for ele in row:
+            print(ele, end=" ")
+        print()

@@ -1,0 +1,35 @@
+#brute approach
+# from typing import List
+# def rotatematrix(arr:list[List[int]])->List[List[int]]:
+#     n=len(arr)
+#     rotated=[[0 for i in range(n)]for i in range(n)]
+#     for i in range(n):
+#         for j in range(n):
+#             rotated[j][n-i-1]=arr[i][j]
+#     return rotated
+# if __name__ == "__main__":
+#     arr = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+#     rotated = rotatematrix(arr)
+#     print("Rotated Image")
+#     for i in range(len(rotated)):
+#         for j in range(len(rotated[0])):
+#             print(rotated[i][j], end=" ")
+#         print()
+#optimal approach
+from typing import List
+def rotatematrix(arr:list[List[int]])->None:
+    n=len(arr)
+    for i in range(n):
+        for j in range(i):
+            arr[i][j],arr[j][i]=arr[j][i],arr[i][j]
+    for i in range(n):
+        arr[i].reverse()
+
+if __name__ == "__main__":
+    arr = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+    rotatematrix(arr)
+    print("Rotated Image")
+    for i in range(len(arr)):
+        for j in range(len(arr[0])):
+            print(arr[i][j], end=" ")
+        print()

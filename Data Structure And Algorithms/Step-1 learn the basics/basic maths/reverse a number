@@ -1,0 +1,19 @@
+class Solution:
+    def reverseNumber(self,n):
+       rev=0
+       while(n>0):
+           rem=n%10
+           rev=rev*10+rem
+           n=n//10
+       print(rev)
+import sys
+sol = Solution()
+for line in sys.stdin:
+    line = line.strip()
+    if line.startswith('n'):
+        parts = line.split('=')
+        if len(parts) == 2:
+            n = int(parts[1].strip())
+            sol.reverseNumber(n)
+    else:
+        continue

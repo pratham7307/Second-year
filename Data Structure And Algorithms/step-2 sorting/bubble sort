@@ -1,0 +1,14 @@
+def bubble_sort(arr):
+    n=len(arr)
+    for i in range(n-1,0,-1):#number of passes, passes are always n-1
+        swapcase=0
+        for j in range(0,i):#for sending the greatest element at last in each pass,n-i-1 because the 
+            #greatest element at last is already sorted
+            if arr[j]>arr[j+1]:
+                arr[j],arr[j+1]=arr[j+1],arr[j]
+                swapcase=1
+        if swapcase==0:
+            break
+    return arr
+arr=[3,5,4,2,1,4,7]
+print(bubble_sort(arr))

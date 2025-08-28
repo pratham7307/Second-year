@@ -1,0 +1,13 @@
+def func(l,r):
+    if(l>=r):
+        print(li)
+        return
+    li[l],li[r]=li[r],li[l]
+    func(l+1,r-1)
+if __name__=="__main__":
+    n=int(input("enter the number"))
+    li=[]
+    for i in range(n):
+        a=int(input("enter the number:"))
+        li.append(a)
+    func(0,n-1)

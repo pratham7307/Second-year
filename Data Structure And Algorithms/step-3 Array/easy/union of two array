@@ -1,0 +1,17 @@
+def union_add(arr,n1,n2):
+    s=set()
+    union=[]
+    for i in range(n1):
+        s.add(arr[i])
+    for i in range(n2):
+        s.add(brr[i])
+    for i in s:
+        union.append(i)
+    return union
+
+if __name__=="__main__":
+    arr=[1,2,3,4,5,6]
+    brr=[2,3,4,56,7,8]
+    n2=len(brr)
+    n1=len(arr)
+    print(union_add(arr,n1,n2))

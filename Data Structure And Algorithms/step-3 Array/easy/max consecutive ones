@@ -1,0 +1,14 @@
+def consecutive_ones(arr,n):
+        count=0
+        max=0
+        for i in range(n):
+            if arr[i]==1:
+                 count+=1
+            else:
+                 count=0
+            max=count
+        return max
+if __name__=="__main__":
+    arr=[1,1,0,1,1,1,1]
+    n=len(arr)
+    print(consecutive_ones(arr,n))

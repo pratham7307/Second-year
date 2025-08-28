@@ -1,0 +1,6 @@
+class Solution:
+    def printNumber(self, n):
+        print(n)
+n = int(input())
+sol = Solution()
+sol.printNumber(n)

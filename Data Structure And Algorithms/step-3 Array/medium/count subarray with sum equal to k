@@ -1,0 +1,19 @@
+#better approach
+def findAllSubarraysWithGivenSum(arr, k):
+    n = len(arr)  
+    cnt = 0  
+
+    for i in range(n):  
+        subarray_sum = 0
+        for j in range(i, n):  
+            subarray_sum += arr[j]
+            if subarray_sum == k:
+                cnt += 1
+
+    return cnt
+
+if __name__ == '__main__':
+    arr = [3, 1, 2, 4]
+    k = 6
+    cnt = findAllSubarraysWithGivenSum(arr, k)
+    print("The number of subarrays is:", cnt)

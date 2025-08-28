@@ -1,0 +1,18 @@
+class Solution:
+    def countDigit(self,n):
+       count=0
+       for i in (n):
+           count+=1
+       print(count)
+
+import sys
+sol = Solution()
+for line in sys.stdin:
+    line = line.strip()
+    if line.startswith('n'):
+        parts = line.split('=')
+        if len(parts) == 2:
+            n = str(parts[1].strip())
+            sol.countDigit(n)
+    else:
+        continue

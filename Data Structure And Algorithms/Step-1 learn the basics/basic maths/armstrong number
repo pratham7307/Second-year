@@ -1,0 +1,16 @@
+def armstrong(n):
+    a=len(str(n))
+    rem=0
+    org=n
+    result=0
+    while(n>0):
+        rem=n%10
+        result+=rem**a
+        n=n//10
+    if result == org:
+        return "Armstrong Number"
+    else:
+        return "Not Armstrong Number"
+if __name__=="__main__":
+    n=int(input("enter the number:"))
+    print(armstrong(n))

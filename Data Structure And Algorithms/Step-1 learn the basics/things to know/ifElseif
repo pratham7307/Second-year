@@ -1,0 +1,24 @@
+class Solution:
+    def studentGrade(self, marks):
+        if marks >= 90:
+            print("Grade A")
+        elif marks >= 70:
+            print("Grade B")
+        elif marks >= 50:
+            print("Grade C")
+        elif marks >= 35:
+            print("Grade D")
+        else:
+            print("Fail")
+
+import sys
+
+sol = Solution()
+for line in sys.stdin:
+    line = line.strip()
+    if line.isdigit() or (line.startswith('-')or line.startswith('=') and line[1:].isdigit()):
+        n = int(line)
+        sol.studentGrade(n)
+    else:
+        # Skip lines like 'TestCase-1'
+        continue

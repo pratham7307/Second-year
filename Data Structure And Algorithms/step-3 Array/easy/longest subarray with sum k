@@ -1,0 +1,56 @@
+#brute force approach
+'''from typing import List
+def longest_subarray(arr:list[int],k:int)->int:
+    n=len(arr)
+    length =0
+    for i in range(n):
+        for j in range(i,n):
+            s=0
+            for K in range(i,j+1):
+                s+=arr[K]
+            if s==k:
+                length=max(length,j-i+1)
+    return length
+if __name__=="__main__":
+    arr=[2,3,5,1,9]
+    k=10
+    print(longest_subarray(arr,k))'''
+#brute approach ++
+'''from typing import List
+def longest_subarray(arr:list[int],k:int)->int:
+    n=len(arr)
+    length=0
+    for i in range(n):
+        s=0
+        for j in range(i,n):
+            s+=arr[j]
+            if s==k:
+              length=max(length,j-i+1)
+    return length
+if __name__=="__main__":
+    arr=[2,3,5,1,9]
+    k=10
+    print(longest_subarray(arr,k))'''
+#better approach
+from typing import List
+def longest_subarray(arr,k):
+    n=len(arr)
+    prefixmap={}
+    prefixsum=0
+    maxlength=0
+    for i in range(n):
+        prefixsum+=arr[i]
+        if prefixsum==k:
+          maxlength=max(maxlength,i+1)
+        rem=prefixsum-k
+        if rem in prefixmap:
+            length=i-prefixmap[rem]
+            maxlength=max(length,maxlength)
+        if prefixsum not in prefixmap:
+            prefixmap[prefixsum]=i
+    return maxlength
+
+if __name__=="__main__":
+    arr=[2,3,5,1,9]
+    k=10
+    print(longest_subarray(arr,k))
